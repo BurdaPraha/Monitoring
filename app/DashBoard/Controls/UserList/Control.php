@@ -41,17 +41,17 @@ class Control extends \Nette\Application\UI\Control
 			->setFilterText(['git_hub_name'])
 		;
 
+		$administratorReplacement = [
+			1 => 'Ano',
+			0 => 'Ne',
+		];
+		$administratorFilter = [
+			'' => 'Všechno',
+		] + $administratorReplacement;
 		$grid
 			->addColumnText('administrator', 'Administrátor')
-			->setReplacement([
-					0 => 'Ne',
-					1 => 'Ano',
-				]
-			)->setFilterSelect([
-				'' => 'Všechno',
-				0 => 'Ne',
-				1 => 'Ano',
-			])
+			->setReplacement($administratorReplacement)
+			->setFilterSelect($administratorFilter)
 		;
 
 		$grid
